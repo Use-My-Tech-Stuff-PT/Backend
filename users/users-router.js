@@ -61,7 +61,7 @@ router.post('/:id/items', auth, checkRoleMiddleware(owner),  (req, res) => {
 
     Items.add(itemInfo)
     .then(post => {
-        res.status(201).json(post);
+        res.status(201).json(post[0]);
     })
     .catch(error => {
         console.log(error);
