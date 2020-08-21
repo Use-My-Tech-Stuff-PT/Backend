@@ -16,8 +16,8 @@ function get() {
 
 function getById(id) {
     return db('items')
-      .where({ id: id })
-
+      .where('id', id)
+      .first();
 }
 
 function add(item) {
