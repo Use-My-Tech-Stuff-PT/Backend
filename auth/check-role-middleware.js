@@ -8,7 +8,7 @@
 //     };
 // };
 
-function checkRole(role) {
+function checkRoleMiddleware(role) {
     return function (req, res, next) {
         console.log('This here', role)
         console.log('yo', req.decodedToken)
@@ -20,4 +20,4 @@ function checkRole(role) {
     }
 }
 
-module.exports = checkRole;
+module.exports = checkRoleMiddleware;

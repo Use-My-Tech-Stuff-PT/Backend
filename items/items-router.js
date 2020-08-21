@@ -2,7 +2,7 @@ const express = require('express');
 
 const Items = require('./items-model.js');
 const auth = require('../auth/auth-middleware.js');
-const checkRole = require('../auth/check-role-middleware.js');
+const checkRoleMiddleware = require('../auth/check-role-middleware.js');
 
 const router = express.Router();
 
@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.put('/:id', auth, checkRole(owner), (req, res) => {
+router.put('/:id', auth, checkRoleMiddleware(owner), (req, res) => {
     Items.update(req.params.id, req.body)
     .then(post => {
         if (post) {
@@ -46,7 +46,7 @@ router.put('/:id', auth, checkRole(owner), (req, res) => {
     });
 });
 
-router.delete('/:id', auth, checkRole(owner), (req, res) => {
+router.delete('/:id', auth, checkRoleMiddleware(owner), (req, res) => {
     Items.remove(req.params.id)
     .then(count => {
         if (count > 0) {
