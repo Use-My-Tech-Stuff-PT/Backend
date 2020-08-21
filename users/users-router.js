@@ -9,7 +9,7 @@ const Items = require('../items/items-model.js');
 const router = express.Router();
 
 //registering users
-router.post('/register', (req, res) => {
+router.post('/register', validateUser, (req, res) => {
     const user = req.body;
 
     const hash = bcryptjs.hashSync(user.password, 12);
@@ -68,7 +68,8 @@ router.post('/:id/items', (req, res) => {
 function generateToken(user) {
     const payload = {
         subject: user.id,
-        username: user.username
+        username: user.username,
+        role: user.role
     };
 
     const options = {
@@ -78,6 +79,17 @@ function generateToken(user) {
     const secret = secrets.jwtSecret;
 
     return jwt.sign(payload, secret, options);
+};
+
+function validateUser(req, res, next) {
+    const { username, password, role } = req.body
+    if (username && password && role) {
+        next();
+    } else if (Object.keys(req.body).length < 1) {
+        res.status(400).json({ message: 'missing user data' });
+    } else if (!role) {
+        res.status(400).json({ message: 'missing role for user' });
+    };
 };
 
 module.exports = router;
