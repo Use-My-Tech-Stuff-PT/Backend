@@ -20,6 +20,7 @@ exports.up = function(knex) {
           .notNullable();
         tbl.string('price')
           .notNullable();
+        tbl.string('img_src', 256)
         tbl.integer('user_id')
           .unsigned()
           .notNullable()
