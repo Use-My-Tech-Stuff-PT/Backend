@@ -5,8 +5,12 @@ const secrets = require('../config/secrets.js')
 
 const Users = require('./users-model.js');
 const Items = require('../items/items-model.js');
+const auth = require('../auth/auth-middleware.js');
+const checkRoleMiddleware = require('../auth/check-role-middleware.js');
 
 const router = express.Router();
+
+const owner = 'owner';
 
 //registering users
 router.post('/register', validateUser, (req, res) => {
@@ -52,7 +56,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/:id/items', (req, res) => {
+router.post('/:id/items', auth, checkRoleMiddleware(owner),  (req, res) => {
     const itemInfo = {...req.body, user_id: req.params.id};
 
     Items.add(itemInfo)
