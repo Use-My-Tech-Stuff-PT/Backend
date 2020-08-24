@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const server = require('./api/server.js');
+const server = require('./server.js');
 
 const PORT = process.env.DB_ENV === 'testing' ? 5000 : process.env.PORT;
 server.listen(PORT, () => {
