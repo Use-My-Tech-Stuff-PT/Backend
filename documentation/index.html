@@ -234,10 +234,7 @@
         ><code class="huge"><span class="http-method">post</span> /api/users/register</code></pre>
       </div>
       <div class="method-summary">
-        Create user - WORKING (<span class="nickname">createUser</span>)
-      </div>
-      <div class="method-notes">
-        This can only be done by the logged in user.
+        Create user - WORKING <span class="nickname"></span>
       </div>
 
       <h3 class="field-label">Request body</h3>
@@ -255,8 +252,8 @@
       <!--Todo: process Response Object and its headers, schema, examples -->
 
       <h3 class="field-label">Responses</h3>
-      <h4 class="field-label">default</h4>
-      successful operation
+      <h4 class="field-label">201</h4>
+      successful operation 
       <a href="#"></a>
     </div>
     <!-- method -->
@@ -270,9 +267,9 @@
         ><code class="huge"><span class="http-method">post</span> /api/users/login</code></pre>
       </div>
       <div class="method-summary">
-        Logs user into the system - WORKING (<span class="nickname"
-          >loginUser</span
-        >)
+        Logs user into the system - WORKING <span class="nickname"
+          ></span
+        >
       </div>
       <div class="method-notes"></div>
 
@@ -305,10 +302,10 @@
         ><code class="huge"><span class="http-method">post</span> /api/users/:id/items</code></pre>
       </div>
       <div class="method-summary">
-        Add item for rent by user (<span
+        Add item for rent by user <span
           class="nickname"
-          >getUserById</span
-        >)
+          ></span
+        >
       </div>
       <div class="method-notes"></div>
 
@@ -345,58 +342,12 @@
     </div>
     <!-- method -->
     <hr />
-    <div class="method">
-      <a name="deleteUser" />
-      <div class="method-path">
-        <a class="up" href="#__Methods">Up</a>
-        <pre
-          class="delete"
-        ><code class="huge"><span class="http-method">delete</span> /api/user/:id</code></pre>
-      </div>
-      <div class="method-summary">
-        Delete account - WORKING (<span class="nickname">deleteUser</span>)
-      </div>
-      <div class="method-notes"></div>
-
-      <h3 class="field-label">Return type</h3>
-      <div class="return-type">
-        <a href="#User">User</a>
-      </div>
-
-      <!--Todo: process Response Object and its headers, schema, examples -->
-
-      <h3 class="field-label">Example data</h3>
-      <div class="example-data-content-type">Content-Type: application/xml</div>
-      <h3 class="field-label">Example data</h3>
-      <div class="example-data-content-type">
-        Content-Type: application/json
-      </div>
-
-      <h3 class="field-label">Produces</h3>
-      This API call produces the following media types according to the
-      <span class="header">Accept</span> request header; the media type will be
-      conveyed by the <span class="header">Content-Type</span> response header.
-      <ul>
-        <li><code>application/xml</code></li>
-        <li><code>application/json</code></li>
-      </ul>
-
-      <h3 class="field-label">Responses</h3>
-      <h4 class="field-label">200</h4>
-      successful operation
-      <a href="#User">User</a>
-      <h4 class="field-label">400</h4>
-      Invalid username supplied
-      <a href="#"></a>
-      <h4 class="field-label">404</h4>
-      User not found
-      <a href="#"></a>
-    </div>
+    
     <!-- method -->
     <hr />
 
     <div class="method-summary"></div>
-    <h4><p>SONGS ENDPOINTS - /api/songs/</p></h4>
+    <h4><p>ITEMS ENDPOINTS - /api/items/</p></h4>
     <ul>
       <li>
         <a href="#songs"
@@ -405,24 +356,19 @@
       </li>
       <li>
         <a href="#likeSong"
-          ><code><span class="http-method">post</span> /like</code></a
+          ><code><span class="http-method">get</span> /:id</code></a
         >
       </li>
       <li>
         <a href="#getSongs"
-          ><code><span class="http-method">get</span> /:id/songs</code></a
+          ><code><span class="http-method">put</span>/:id</code></a
         >
       </li>
       <li>
         <a href="#delSong"
           ><code
-            ><span class="http-method">delete</span> /:id/likes/:track_id</code
+            ><span class="http-method">delete</span> /:id</code
           ></a
-        >
-      </li>
-      <li>
-        <a href="#similarSongs"
-          ><code><span class="http-method">get</span> /similar</code></a
         >
       </li>
     </ul>
@@ -432,20 +378,12 @@
         <a class="up" href="#__Methods">Up</a>
         <pre
           class="get"
-        ><code class="huge"><span class="http-method">get</span> /api/songs</code></pre>
+        ><code class="huge"><span class="http-method">get</span> /api/items</code></pre>
       </div>
       <div class="method-summary">
-        Get all songs - WORKING (<span class="nickname">getSongs</span>)
+        Get all items - WORKING
       </div>
       <div class="method-notes">
-        This can only be done by the logged in user.
-      </div>
-
-      <h3 class="field-label">Request Header</h3>
-      <div class="field-items">
-        <pre class="example"><code>
-        authorization: <i>token</i>,
-        </code></pre>
       </div>
 
       <h3 class="field-label">Response Body</h3>
@@ -453,23 +391,12 @@
         <pre class="example"><code>
       {
         {
-          "track_id": "<i>track_id</i>",
-          "track_name": "<i>track_name</i>",
-          "artist_name": "<i>artist_name</i>",
-          "acousticness": <i>integer</i>,
-          "danceability": <i>integer</i>,
-          "duration_ms": <i>integer</i>,
-          "energy": <i>integer</i>,
-          "instrumentalness": <i>integer</i>,
-          "key": <i>integer</i>,
-          "liveness": <i>integer</i>,
-          "loudness": <i>integer</i>,
-          "mode": <i>boolean</i>,
-          "speechiness": <i>integer</i>,
-          "tempo": <i>integer</i>,
-          "time_signature": <i>integer</i>,
-          "valence": <i>integer</i>,
-          "popularity": <i>integer</i>
+          "id": "id",
+          "item_name": "item_name",
+          "description": "description",
+          "price": "$price", // must be a string
+          "img_src": "img_src", // could be null as it's an optional field
+          "username": "username" // user the item belongs to, 
         },
         {...},
         {...},
@@ -495,112 +422,112 @@
         <a class="up" href="#__Methods">Up</a>
         <pre
           class="post"
-        ><code class="huge"><span class="http-method">post</span> /api/songs/like</code></pre>
+        ><code class="huge"><span class="http-method">get</span> /api/items/:id</code></pre>
       </div>
       <div class="method-summary">
-        Like song - UNDER CONSTRUCTION (<span class="nickname">likeSong</span>)
-      </div>
-      <div class="method-notes">
-        This can only be done by the logged in user.
-      </div>
-
-      <h3 class="field-label">Request body</h3>
-      <div class="field-items">
-        <pre class="example"><code>
-        {
-          "track_id": <i>"track_id"</i>,
-        }</code></pre>
-      </div>
-      <h3 class="field-label">Response body</h3>
-      <div class="field-items">
-        <pre class="example"><code>
-        {
-          "message": `Song successfully saved: <i>${song.track_name}</i>`,
-        }</code></pre>
+        Get single item - WORKING
       </div>
 
       <h3 class="field-label">Responses</h3>
       <h4 class="field-label">default</h4>
       successful operation - 200
       <a href="#"></a>
+      <h4 class="field-label">404</h4>
+        Invalid item ID/Not found
     </div>
     <!-- method -->
     <hr />
     <div class="method">
-      <a name="getLikedSongs" />
-      <div class="method-path">
-        <a class="up" href="#__Methods">Up</a>
-        <pre
-          class="get"
-        ><code class="huge"><span class="http-method">get</span> /api/user/:id/likes</code></pre>
-      </div>
-      <div class="method-summary">
-        Get users liked songs - WORKING (<span class="nickname"
-          >getLikedSongs</span
-        >)
-      </div>
-      <h3 class="field-label">Response body</h3>
-      <div class="field-items">
+        <a name="getUserByName" />
+        <div class="method-path">
+          <a class="up" href="#__Methods">Up</a>
+          <pre
+            class="put"
+          ><code class="huge"><span class="http-method">post</span> /api/items/:id</code></pre>
+        </div>
+        <div class="method-summary">
+          Edit item for rent - WORKING <span
+            class="nickname"
+            ></span
+          >
+          <div class="method-notes">This can only be done by logged in user</div>
+        </div>
+        <div class="method-notes"></div>
+  
+        <h3 class="field-label">Return type</h3>
+        <div class="return-type">
+          <a href="#User">User</a>
+        </div>
+  
+        <!--Todo: process Response Object and its headers, schema, examples -->
+  
+        <h3 class="field-label">Example data</h3>
+        <div class="example-data-content-type">
+          Content-Type: application/json
+        </div>
         <pre class="example"><code>
-          {
-            {
-              "track_id": "<i>track_id</i>",
-              "track_name": "<i>track_name</i>",
-              "artist_name": "<i>artist_name</i>",
-            },
-            {...},
-            {...},
-            {...}
-          }
-        </code></pre>
+        {
+          "item_name": "item_name",
+          "description": "item_name",
+          "price": "$50", // Must be a string!
+          "img_src": "img_src" // Optional
+        } 
+      </code></pre>
+  
+        <h3 class="field-label">Responses</h3>
+        <h4 class="field-label">200</h4>
+        Successfully updated item
+        <a href="#User"></a>
+        <h4 class="field-label">404</h4>
+        Invalid item id supplied
+        <a href="#"></a>
+        <a href="#"></a>
       </div>
-
-      <h3 class="field-label">Responses</h3>
-      <h4 class="field-label">200</h4>
-      successful operation
-      <a href="#"></a>
-      <h4 class="field-label">400</h4>
-      Invalid user id
-      <a href="#"></a>
-      <h4 class="field-label">404</h4>
-      Error
-      <a href="#"></a>
-    </div>
     <!-- method -->
-    <hr />
     <div class="method">
-      <a name="delSong" />
-      <div class="method-path">
-        <a class="up" href="#__Methods">Up</a>
-        <pre
-          class="delete"
-        ><code class="huge"><span class="http-method">delete</span> /api/user/:id/likes/:track_id</code></pre>
+        <a name="deleteUser" />
+        <div class="method-path">
+          <a class="up" href="#__Methods">Up</a>
+          <pre
+            class="delete"
+          ><code class="huge"><span class="http-method">delete</span> /api/item/:id</code></pre>
+        </div>
+        <div class="method-summary">
+          Delete item - WORKING <span class="nickname"></span>
+        </div>
+        <div class="method-notes">This can only be done by logged in user</div>
+  
+        <h3 class="field-label">Return type</h3>
+        <div class="return-type">
+          <a href="#User">User</a>
+        </div>
+  
+        <!--Todo: process Response Object and its headers, schema, examples -->
+  
+        <h3 class="field-label">Example data</h3>
+        <div class="example-data-content-type">Content-Type: application/xml</div>
+        <h3 class="field-label">Example data</h3>
+        <div class="example-data-content-type">
+          Content-Type: application/json
+        </div>
+  
+        <h3 class="field-label">Produces</h3>
+        This API call produces the following media types according to the
+        <span class="header">Accept</span> request header; the media type will be
+        conveyed by the <span class="header">Content-Type</span> response header.
+        <ul>
+          <li><code>application/xml</code></li>
+          <li><code>application/json</code></li>
+        </ul>
+  
+        <h3 class="field-label">Responses</h3>
+        <h4 class="field-label">200</h4>
+        Item has been deleted
+  
+        <h4 class="field-label">404</h4>
+        Invalid item ID/Not found
+        <a href="#"></a>
       </div>
-      <div class="method-summary">
-        Remove a liked song - WORKING (<span class="nickname">delSong</span>)
-      </div>
-      <div class="method-notes"></div>
-
-      <!--Todo: process Response Object and its headers, schema, examples -->
-
-      <h3 class="field-label">Produces</h3>
-      This API call produces the following media types according to the
-      <span class="header">Accept</span> request header; the media type will be
-      conveyed by the <span class="header">Content-Type</span> response header.
-      <ul>
-        <li><code>application/xml</code></li>
-        <li><code>application/json</code></li>
-      </ul>
-
-      <h3 class="field-label">Responses</h3>
-      <h4 class="field-label">200</h4>
-      Successfully removed track: (track_name)
-      <a href="#"></a>
-      <h4 class="field-label">400</h4>
-      Cannot locate specified track
-      <a href="#"></a>
-      <h4 class="field-label">404</h4>
-      Error
       <a href="#"></a>
     </div>
   </body>
