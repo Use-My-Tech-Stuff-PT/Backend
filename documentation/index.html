@@ -214,12 +214,7 @@
       </li>
       <li>
         <a href="#getUserByName"
-          ><code><span class="http-method">put</span> - /:id</code></a
-        >
-      </li>
-      <li>
-        <a href="#deleteUser"
-          ><code><span class="http-method">delete</span> - /:id</code></a
+          ><code><span class="http-method">post</span> - /:id/items</code></a
         >
       </li>
     </ul>
@@ -302,7 +297,7 @@
         ><code class="huge"><span class="http-method">post</span> /api/users/:id/items</code></pre>
       </div>
       <div class="method-summary">
-        Add item for rent by user <span
+        Add item for rent by user. User ID is supplied in login response <span
           class="nickname"
           ></span
         >
@@ -335,9 +330,6 @@
       <a href="#User">User</a>
       <h4 class="field-label">400</h4>
       Invalid user id supplied
-      <a href="#"></a>
-      <h4 class="field-label">404</h4>
-      User not found
       <a href="#"></a>
     </div>
     <!-- method -->
@@ -490,7 +482,7 @@
           <a class="up" href="#__Methods">Up</a>
           <pre
             class="delete"
-          ><code class="huge"><span class="http-method">delete</span> /api/item/:id</code></pre>
+          ><code class="huge"><span class="http-method">delete</span> /api/items/:id</code></pre>
         </div>
         <div class="method-summary">
           Delete item - WORKING <span class="nickname"></span>
