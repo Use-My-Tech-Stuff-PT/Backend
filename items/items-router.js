@@ -6,7 +6,7 @@ const checkRoleMiddleware = require('../auth/check-role-middleware.js');
 
 const router = express.Router();
 
-const owner  = 'owner'
+const owner  = 'Owner'
 
 
 router.get('/', (req, res) => {
