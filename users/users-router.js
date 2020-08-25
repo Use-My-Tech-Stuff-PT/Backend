@@ -10,7 +10,7 @@ const checkRoleMiddleware = require('../auth/check-role-middleware.js');
 
 const router = express.Router();
 
-const owner = 'owner';
+const owner = 'Owner';
 
 //registering users
 router.post('/register', validateUser, (req, res) => {
@@ -21,7 +21,7 @@ router.post('/register', validateUser, (req, res) => {
 
     try {
         const saved = Users.add(user);
-        res.status(201).json(saved);
+        res.status(201).json({ message: 'User created!' });
     } catch (error) {
         res.status(500).json(error);
     };
