@@ -56,7 +56,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/:id/items', /* auth, checkRoleMiddleware(owner), */ (req, res) => {
+router.post('/:id/items', auth, checkRoleMiddleware(owner), (req, res) => {
     const itemInfo = {...req.body, user_id: req.params.id};
 
     Items.add(itemInfo)
