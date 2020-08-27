@@ -26,10 +26,10 @@ function findById(id) {
 
 
 function add(user) {
-    return db('users').insert(user).returning('*');
-    // .then(ids => {
-    //     return findById(ids[0]);
-    // })
+    return db('users').insert(user)
+    .then(ids => {
+        return findById(ids[0]);
+    })
 };
 
 function update(changes, id) {
