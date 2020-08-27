@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.put('/:id', auth, checkRoleMiddleware(owner), (req, res) => {
+router.put('/:id',/* auth, checkRoleMiddleware(owner), */(req, res) => {
     Items.update(req.params.id, req.body)
     .then(post => {
         if (post) {
@@ -46,7 +46,7 @@ router.put('/:id', auth, checkRoleMiddleware(owner), (req, res) => {
     });
 });
 
-router.delete('/:id', auth, checkRoleMiddleware(owner), (req, res) => {
+router.delete('/:id',/* auth, checkRoleMiddleware(owner), */(req, res) => {
     Items.remove(req.params.id)
     .then(count => {
         if (count > 0) {
