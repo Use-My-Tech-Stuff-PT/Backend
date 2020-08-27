@@ -21,7 +21,7 @@ router.post('/register', validateUser, (req, res) => {
 
     try {
         const saved = Users.add(user);
-        res.status(201).json({ message: 'User created!' });
+        res.status(201).json({ message: 'User created!', id: user.id });
     } catch (error) {
         res.status(500).json(error);
     };
@@ -36,7 +36,7 @@ router.post('/login', (req, res) => {
     .then(user => {
         if (user && bcryptjs.compareSync(password, user.password)) {
             const token = generateToken(user);
-            res.status(200).json({ message: `Welcome ${user.username}!`, id: user.id, token });
+            res.status(200).json({ message: `Welcome ${user.username}!`, id: user.id });
         } else {
             res.status(401).json({ message: 'Incorrect credentials' });
         }
@@ -56,7 +56,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/:id/items', auth, checkRoleMiddleware(owner),  (req, res) => {
+router.post('/:id/items', /* auth, checkRoleMiddleware(owner), */ (req, res) => {
     const itemInfo = {...req.body, user_id: req.params.id};
 
     Items.add(itemInfo)

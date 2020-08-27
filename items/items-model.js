@@ -11,7 +11,7 @@ module.exports = {
 function get() {
     return db('items')
       .leftJoin('users', 'users.id', 'items.user_id')
-      .select('items.id', 'items.item_name', 'items.description', 'items.price', 'items.img_src', 'users.username')
+      .select('items.id', 'items.item_name', 'items.description', 'items.price', 'items.img_src', 'users.username', 'items.user_id')
 };
 
 function getById(id) {
