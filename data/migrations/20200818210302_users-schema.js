@@ -8,7 +8,7 @@ exports.up = function(knex) {
           .notNullable();
         tbl.string('password', 128)
           .notNullable();
-        tbl.integer('zipcode')
+        tbl.string('zipcode')
           .notNullable();
         tbl.string('role', 128)
           .notNullable();
