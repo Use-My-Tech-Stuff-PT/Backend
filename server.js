@@ -7,6 +7,11 @@ const ItemsRouter = require('./items/items-router.js');
 
 const server = express();
 
+server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+})
+
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
