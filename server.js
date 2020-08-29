@@ -13,7 +13,7 @@ server.use((req, res, next) => {
 })
 
 server.use(helmet());
-server.use(cors());
+// server.use(cors());
 server.use(express.json());
 
 server.use("/", express.static(__dirname + "/documentation"));
