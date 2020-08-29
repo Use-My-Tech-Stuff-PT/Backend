@@ -1,5 +1,5 @@
 const express = require('express');
-// const cors = require('cors');
+const cors = require('cors');
 
 const Items = require('./items-model.js');
 const auth = require('../auth/auth-middleware.js');
@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// router.options('/:id', cors());
+router.options('/:id', cors());
 
 router.put('/:id', auth, checkRoleMiddleware(owner), (req, res) => {
     Items.update(req.params.id, req.body)
