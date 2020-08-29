@@ -39,6 +39,7 @@ router.get('/:id', (req, res) => {
 router.options('/:id', cors());
 
 router.put('/:id', auth, checkRoleMiddleware(owner), (req, res) => {
+    delete req.body.username
     Items.update(req.params.id, req.body)
     .then(post => {
         if (post) {

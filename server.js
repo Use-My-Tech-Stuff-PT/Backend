@@ -7,16 +7,15 @@ const ItemsRouter = require('./items/items-router.js');
 
 const server = express();
 
-
-
-server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
-server.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
+server.use(function (req, res, next) {
+    console.log('Yoooo')
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin,X-Requested-Withm Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 })
 
@@ -25,10 +24,6 @@ server.use("/", express.static(__dirname + "/documentation"));
 server.use('/api/users', UsersRouter);
 server.use('/api/items', ItemsRouter);
 
-// server.options('/api/items/:id', cors()) // enable pre-flight request for delete
-// server.put('/api/items/:id', cors(), function (req, res, next){
-//     res.json({msg: 'This is CORS-enabled for all origins!'})
-// });
 
 server.get('/', function (req, res) {
     res.sendfile(__dirname + './documentation/index.html');
